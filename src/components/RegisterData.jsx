@@ -65,7 +65,7 @@ function RegisterData() {
 
 
             }
-            setTimeout(()=>navigate('/1'),300)
+            setTimeout(()=>navigate('/'),300)
         }, 2000)
 
 

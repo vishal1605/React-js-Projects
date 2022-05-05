@@ -1,11 +1,17 @@
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 
 function Navbar(param) {
     let args = JSON.parse(localStorage.getItem('data'));
+
     const [search, setSearch] = useState('');
-    const [result, setResult] = useState([...args]);
-    const [newObj, setNewObj] = useState([]);
+    const [result] = useState(args);
+    const [newObj] = useState([]);
+    if (args === null) {
+        localStorage.setItem('data', JSON.stringify(newObj));
+    } else {
+        
+    }
 
 
     const searchHandle = (e) => {
@@ -16,7 +22,7 @@ function Navbar(param) {
 
 
         } else {
-            const newData = result.filter(obj => {
+            const newData = args.filter(obj => {
                 return obj.userName.toLowerCase().includes(e.target.value.toLowerCase()) || obj.email.toLowerCase().includes(e.target.value.toLowerCase());
             });
 

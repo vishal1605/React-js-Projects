@@ -11,7 +11,6 @@ function Content(param) {
   const [obj, setObj] = useState([]);
   const navigate = useNavigate();
   const [count, seCount] = useState(0);
-  const [count1, seCount1] = useState(0);
   const [page, setPage] = useState(0);
   const [start, setStart] = useState(0);
   const [end, setEnd] = useState(3);
@@ -131,7 +130,7 @@ function Content(param) {
           </tbody>
         </table>
       </div>
-      <Pagination pageCount={page} getPages={clickedPage} currentPage={currentPage} displaySearch={param.searchData.length}/>
+      <Pagination pageCount={page} getPages={clickedPage} currentPage={currentPage} displaySearch={param.searchData.length} mainObj={obj}/>
     </div>
   )
 }
