@@ -3,7 +3,7 @@ import { Link, useNavigate, useParams } from 'react-router-dom';
 import Pagination from './Pagination';
 
 function Content(param) {
-  console.log(param.searchData);
+  // console.log(param.searchData);
 
   let value = useParams();
   // console.log(value.page);
@@ -82,7 +82,7 @@ function Content(param) {
 
   return (
     <div className="row">
-      <div className="col-11 m-auto">
+      <div className="col-12 m-auto">
         <h1>{`All data`}</h1>
         <table className="table table-striped">
           <thead>
@@ -106,8 +106,8 @@ function Content(param) {
                   <td>{email}</td>
                   <td>{password}</td>
                   <td>
-                    <Link to='/' className="btn btn-primary">Edit</Link>
-                    <button className="btn btn-danger mx-1" value={id} onClick={deleteOperation}>Delete</button>
+                    <Link to='/' className="btn btn-primary"><i className="fa-solid fa-pen-to-square"></i></Link>
+                    <button className="btn btn-danger mx-1" value={id} onClick={deleteOperation}><i className="fa-solid fa-trash"></i></button>
                   </td>
                 </tr>
               )
@@ -120,8 +120,8 @@ function Content(param) {
                   <td>{email}</td>
                   <td>{password}</td>
                   <td>
-                    <Link to='/' className="btn btn-primary">Edit</Link>
-                    <button className="btn btn-danger mx-1" value={id} onClick={deleteOperation}>Delete</button>
+                    <Link to='/' className="btn btn-primary"><i className="fa-solid fa-pen-to-square"></i></Link>
+                    <button className="btn btn-danger mx-1" value={id} onClick={deleteOperation}><i className="fa-solid fa-trash"></i></button>
                   </td>
                 </tr>
               )

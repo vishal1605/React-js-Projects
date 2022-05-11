@@ -4,31 +4,29 @@ import { Link } from 'react-router-dom'
 function Navbar(param) {
     let args = JSON.parse(localStorage.getItem('data'));
 
-    const [search, setSearch] = useState('');
+    // const [search, setSearch] = useState('');
     const [result] = useState(args);
     const [newObj] = useState([]);
     if (args === null) {
         localStorage.setItem('data', JSON.stringify(newObj));
     } else {
-        
+
     }
 
 
     const searchHandle = (e) => {
         // console.log(result);
-        setSearch(e.target.value);
+        let newData = [];
         if (e.target.value === '') {
-            param.searchResult(newObj);
-
 
         } else {
-            const newData = args.filter(obj => {
-                return obj.userName.toLowerCase().includes(e.target.value.toLowerCase()) || obj.email.toLowerCase().includes(e.target.value.toLowerCase());
+            newData = args.filter(obj => {
+                return obj.userName.toLowerCase().includes(e.target.value.toLowerCase());
             });
 
-            // setNewObj(newData);
-            param.searchResult(newData);
+
         }
+        param.searchResult(newData);
 
 
     }
@@ -40,7 +38,7 @@ function Navbar(param) {
                     <h1 className='text-light'>React-CRUD</h1>
                 </div>
                 <div className="search-bar">
-                    <input type="text" placeholder='search data' onChange={searchHandle} value={search} />
+                    <input type="text" placeholder='search data' onChange={searchHandle} />
 
                 </div>
                 <div className="add-btn">

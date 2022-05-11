@@ -9,7 +9,7 @@ function App() {
   const [data, setData] = useState([])
 
   function fetchSearch(e){
-    setData([...e]);
+    setData(e);
   }
 
 

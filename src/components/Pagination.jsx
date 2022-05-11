@@ -12,7 +12,7 @@ function Pagination(props) {
     const clickNumber = (e) => {
         props.getPages(e);
     }
-    console.log(totalPages.length);
+    // console.log(totalPages.length);
     return (
         <div className="row pagination mt-2" style={(props.displaySearch==0 )?{}:{display:"none"}}>
             {totalPages.length!=0 &&
