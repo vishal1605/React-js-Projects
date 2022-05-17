@@ -42,14 +42,16 @@ function LoginForm(param) {
         const obj = data.find(obj => {
             return (obj.userName === input.userName) && (obj.password === input.password);
         });
-        if (obj === undefined) {
+        if (JSON.parse(localStorage.getItem('user') !== null)) {
+            navigate('/feeds');
+        } else if (obj === undefined) {
             setNotice(true);
-        }else{
-            setCount(pre=>pre+1);
+
+        } else {
+            setCount(pre => pre + 1);
             param.getCount(count);
             localStorage.setItem('user', JSON.stringify(obj));
             navigate('/feeds');
-
         }
         setInput({
 
