@@ -8,7 +8,7 @@ function Sidebar() {
                 <form >
                     <li><input type="radio" name="group1" id="high-to-low" />&nbsp;<label htmlFor="high-to-low">high-to-low</label></li>
                     <li><input type="radio" name="group1" id="low-to-high" />&nbsp;<label htmlFor="low-to-high">low-to-high</label></li><br/>
-                    <button className='btn btn-light mt-3' type="reset">Clear</button>
+                    <button className='btn btn-light btn-sm mt-3' type="reset">Clear</button>
 
                 </form>
 
