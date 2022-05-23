@@ -41,11 +41,25 @@
     height: 50px;
     border: 1px solid red;
     border-radius: 50%;
+    overflow: hidden;
 
 }
 
 .container .cart-section .total{
     background-color: rgb(82, 82, 161);
+}
+.container .cart-section .products .row .carts{
+    display: flex;
+    border: 1px solid rgb(220, 216, 216);
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 8px;
+    box-shadow: 1px 3px 5px 2px gray;
+    height: 100px;
+}
+.container .cart-section .products .row .carts img{
+    height: 80px;
+    width: 80px;
 }
 
 .container .main-content .content .loader{

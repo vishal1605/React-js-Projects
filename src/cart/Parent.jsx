@@ -1,7 +1,7 @@
 import React from 'react'
 import { Route, Routes } from 'react-router-dom'
 import Cart from './Cart'
-import GlobalCart from './context/GlobalCart'
+import { GlobalCart } from './context/GlobalCart'
 import Header from './Header'
 import Main from './Main'
 import './parent.css'
@@ -16,6 +16,7 @@ function Parent() {
           <Route path='cart' element={<Cart />} />
         </Routes>
       </GlobalCart>
+
     </div>
   )
 }
