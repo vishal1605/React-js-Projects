@@ -1,18 +1,19 @@
-import React, { useContext, useEffect, useState } from 'react'
+import React, { useContext } from 'react'
 import { Link } from 'react-router-dom'
 import { CartContext } from './context/GlobalCart';
 
 function Header() {
     const context = useContext(CartContext);
 
-    useEffect(() => {
-        console.log(context.cart);
-
-    }, [context.count]);
-
     const removeCart = (e) => {
         context.removeFromCart(Number(e.target.value));
     }
+
+    const searchData = (e) => {
+        context.searchQuery(e.target.value);
+    }
+
+
     return (
         <div className="row nav">
             <div className="col">
@@ -20,7 +21,7 @@ function Header() {
                     <h1><Link className='text-light' style={{ "textDecoration": "none" }} to='/'>Cart</Link></h1>
                 </div>
                 <div className="search-bar">
-                    <input className="form-control me-2" type="search" placeholder="Search" aria-label="Search" />
+                    <input className="form-control me-2" onChange={searchData} type="search" placeholder="Search" aria-label="Search" />
 
                 </div>
 
@@ -34,7 +35,7 @@ function Header() {
                             {(context.cart.length === 0) ?
                                 <li><h5 className="dropdown-item">Cart is empty</h5></li> :
                                 context.cart.map(obj => {
-                                    const { id, image, title, price, quantity } = obj;
+                                    const { id, image, title, price} = obj;
                                     return (
                                         <li className='mb-2' key={id}>
                                             <div className="dropdown-item cart-products">

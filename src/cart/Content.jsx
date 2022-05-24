@@ -1,19 +1,13 @@
-import React, { useContext, useEffect, useState } from 'react'
+import React, { useContext, useState } from 'react'
 import { CartContext } from './context/GlobalCart';
 
 function Content() {
     const context = useContext(CartContext);
 
     const [loading, setLoading] = useState(true);
-    const [products, setProducts] = useState([]);
-
-    useEffect(() => {
-        setProducts([...context.data]);
-        console.log("Content");
-    }, [context.count]);
 
     const addHandler = (e) => {
-        const singleProduct = products.find(obj => {
+        const singleProduct = context.data.find(obj => {
             return obj.id === Number(e.target.value);
         })
         
@@ -37,7 +31,7 @@ function Content() {
                         <h3 className='wait'>Please wait...</h3>
                     </div>
                 }
-                {products.map(product => {
+                {context.data.map(product => {
                     const { id, image, title, price } = product;
 
                     return (
@@ -45,7 +39,7 @@ function Content() {
                             <div className="card">
                                 <img src={image} className="card-img-top" onLoad={() => setLoading(false)} alt="..." style={{ height: 280 + "px" }} />
                                 <div className="card-body">
-                                    <h5 className="card-title">{title.substring(1, 12)}</h5>
+                                    <h5 className="card-title">{title.substring(0, 12)}</h5>
                                     <p className="card-text">{`$ ${price}`}</p>
                                     {context.cart.some(obj=>obj.id===id)?(
                                         <button value={id} onClick={removeHandler} className="btn btn-danger">Remove from Cart</button>

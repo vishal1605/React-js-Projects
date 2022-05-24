@@ -6,6 +6,10 @@ function SingleProduct() {
   const removeCart = (e) => {
     context.removeFromCart(Number(e.target.value));
   }
+  const increaseQuantity = (e) => {
+   
+    context.quantityHandle(Number(e.target.id), Number(e.target.value));
+  }
 
   const context = useContext(CartContext);
   return (
@@ -17,11 +21,12 @@ function SingleProduct() {
           return (
             <div className="col-11 m-auto carts mb-2" key={id}>
               <img src={image} alt="..." />
-              <h5>{title.substring(1, 15) + "..."}</h5>
+              <h5>{title.substring(0, 15) + "..."}</h5>
               <h5>{price}</h5>
 
-              <select className="form-select form-select-sm" style={{ "width": "100px" }} aria-label=".form-select-sm example">
-                <option selected defaultValue={quantity}>{quantity}</option>
+              <select className="form-select form-select-sm" id={id} onChange={increaseQuantity} style={{ "width": "100px" }} aria-label=".form-select-sm example">
+                <option>{quantity}</option>
+                <option value="1">1</option>
                 <option value="2">2</option>
                 <option value="3">3</option>
                 <option value="4">4</option>
