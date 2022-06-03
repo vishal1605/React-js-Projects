@@ -79,7 +79,9 @@
 .container .main-content .content .loader .wait{
     color: red;
     position: absolute;
-    top: 350px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
 
 
